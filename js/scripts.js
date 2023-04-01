@@ -6,6 +6,40 @@
     (function ($) {
     "use strict"; // Start of use strict
 
+    const expandBtns = document.querySelectorAll('.expandBtn');
+    const contents = document.querySelectorAll('.content');
+
+    for (let i = 0; i < expandBtns.length; i++) {
+        expandBtns[i].addEventListener('click', function() {
+            if (this.classList.contains('active')) {
+                this.classList.remove('active');
+                contents[i].style.display = 'none';
+                this.querySelector('.btnText').innerHTML = 'See More';
+            } else {
+                this.classList.add('active');
+                contents[i].style.display = 'block';
+                this.querySelector('.btnText').innerHTML = 'See Less';
+            }
+        });
+    }
+
+    /*
+    const expandBtn = document.getElementsByClassName('expandBtn');
+    const content = document.getElementsByClassName('content');
+
+    expandBtn.addEventListener('click', function() {
+    if (expandBtn.classList.contains('active')) {
+        expandBtn.classList.remove('active');
+        content.style.display = 'none';
+        document.getElementByClassName('btnText').innerHTML = 'See More';
+    } else {
+        expandBtn.classList.add('active');
+        content.style.display = 'block';
+        document.getElementByClassName('btnText').innerHTML = 'See Less';
+    }
+    });
+    */
+
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
         if (
